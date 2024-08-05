@@ -1,0 +1,176 @@
+; This is the Calva REPL Window.
+; It's just a file, really, with some special treatment from Calva.
+; Use it as a REPL input prompt if you like. (When the REPL is connected.)
+; TIPS: The keyboard shortcut `ctrl+alt+o r` shows and focuses this window
+; Please see https://calva.io/repl-window/ for more info.
+; Happy coding! ♥️
+
+; TIPS: As with any Clojure file when the REPL is connected:
+; - `alt+enter` evaluates the current top level form.
+; - `ctrl+enter` evaluates the current form.
+; Special for this file:
+; - `alt+up` and `alt+down` traverse up and down the REPL command history
+;    when the cursor is after the last contents at the prompt
+; 
+; See also the Calva Inspector: https://calva.io/inspector/
+
+PLEASE NOTE
+We will update the default location of this file.
+The new default location will be
+  "<projectRootPath>/.calva/repl.calva-repl"
+For now the legacy path is used by default.
+To give yourself a smooth transition, you can opt in
+to the change, by configuring this setting as false:
+  "calva.useLegacyReplWindowPath"
+and then add "**/.calva/repl.calva-repl" to your ".gitignore" file.
+
+
+This file is configured as the output destination for all REPL output.
+You can configure this with the setting:
+  "calva.outputDestinations"
+
+
+; Jacking in...
+; Connecting using "Leiningen" project type.
+; You can make Calva auto-select this.
+;   - See https://calva.io/connect-sequences/
+; 
+
+; Starting Jack-in: (cd /home/dhia-rizqullah/code/train/4clojure/four-clojure; lein update-in :dependencies conj '[nrepl,"1.1.1"]' -- update-in :plugins conj '[cider/cider-nrepl,"0.47.1"]' -- update-in '[:repl-options,:nrepl-middleware]' conj '["cider.nrepl/cider-middleware"]' -- repl :headless)
+; Using host:port 127.0.0.1:39765 ...
+; Hooking up nREPL sessions ...
+; Connected session: clj
+; Evaluating code from settings: 'calva.autoEvaluateCode.onConnect.clj'
+nil
+clj꞉four-clojure.core꞉> 
+"Please see https://calva.io/output/#about-stdout-in-the-repl-window
+about why stdout printed to this file is prepended with `;` to be line comments."
+clj꞉four-clojure.core꞉> 
+; Jack-in done.
+clj꞉four-clojure.core꞉> (+ 1 1)
+2
+clj꞉four-clojure.core꞉> 
+nil
+clj꞉one-to-twenty.core꞉> (- 10 (* 2 3))
+4
+clj꞉one-to-twenty.core꞉> 
+(= __ (.toUpperCase "hello world"))
+; Syntax error compiling at (.calva/output-window/output.calva-repl:57:1).
+; Unable to resolve symbol: __ in this context
+clj꞉one-to-twenty.core꞉> 
+(.toUpperCase "hello world")
+"HELLO WORLD"
+clj꞉one-to-twenty.core꞉> 
+(list :a :b :c)
+(:a :b :c)
+clj꞉one-to-twenty.core꞉> 
+(vec '(:a :b :c)) (vector :a :b :c)
+[:a :b :c]
+clj꞉one-to-twenty.core꞉> 
+(hash-map :a 10 :b 20 :c 30)
+{:c 30, :b 20, :a 10}
+clj꞉one-to-twenty.core꞉> 
+20
+clj꞉one-to-twenty.core꞉> 
+20
+clj꞉one-to-twenty.core꞉> 
+(conj {:a 1} :b 2 [:c 3])
+; Execution error (IllegalArgumentException) at one-to-twenty.core/eval10566 (form-init7043269448206036034.clj:77).
+; Don't know how to create ISeq from: clojure.lang.Keyword
+clj꞉one-to-twenty.core꞉> 
+(conj {:a 1} {:b 2} [:c 3])
+{:a 1, :b 2, :c 3}
+clj꞉one-to-twenty.core꞉> 
+((partial + 5) 3)
+8
+clj꞉one-to-twenty.core꞉> 
+8
+clj꞉one-to-twenty.core꞉> 
+8
+clj꞉one-to-twenty.core꞉> 
+("Hello, " \R \h \e \a)
+clj꞉one-to-twenty.core꞉> 
+; Execution error (ClassCastException) at one-to-twenty.core/eval10584$fn (form-init7043269448206036034.clj:148).
+; class java.lang.String cannot be cast to class clojure.lang.IPersistentCollection (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IPersistentCollection is in unnamed module of loader 'app')
+clj꞉one-to-twenty.core꞉> 
+("Hello, " \R \h \e \a)
+clj꞉one-to-twenty.core꞉> 
+nil
+clj꞉one-to-twenty.core꞉> 
+; Syntax error macroexpanding clojure.core/ns at (src/one_to_twenty/core.clj:1:1).
+; ((require (quote [clojure.string :as str])) (:gen-class)) - failed: Extra input spec: :clojure.core.specs.alpha/ns-form
+clj꞉one-to-twenty.core꞉> 
+; Syntax error macroexpanding clojure.core/ns at (src/one_to_twenty/core.clj:1:1).
+; require - failed: #{:refer-clojure} at: [:ns-clauses :refer-clojure :clause] spec: :clojure.core.specs.alpha/ns-refer-clojure
+; require - failed: #{:require} at: [:ns-clauses :require :clause] spec: :clojure.core.specs.alpha/ns-require
+; require - failed: #{:import} at: [:ns-clauses :import :clause] spec: :clojure.core.specs.alpha/ns-import
+; require - failed: #{:use} at: [:ns-clauses :use :clause] spec: :clojure.core.specs.alpha/ns-use
+; require - failed: #{:refer} at: [:ns-clauses :refer :clause] spec: :clojure.core.specs.alpha/ns-refer
+; require - failed: #{:load} at: [:ns-clauses :load :clause] spec: :clojure.core.specs.alpha/ns-load
+; require - failed: #{:gen-class} at: [:ns-clauses :gen-class :clause] spec: :clojure.core.specs.alpha/ns-gen-class
+clj꞉one-to-twenty.core꞉> 
+nil
+clj꞉one-to-twenty.core꞉> 
+"RHello, hHello, eHello, a"
+clj꞉one-to-twenty.core꞉> 
+"HRheaeRhealRhealRheaoRhea,Rhea "
+clj꞉one-to-twenty.core꞉> 
+"Hello, Rhea"
+clj꞉one-to-twenty.core꞉> 
+false
+clj꞉one-to-twenty.core꞉> 
+(conj "x" "a")
+; Execution error (ClassCastException) at one-to-twenty.core/eval10620 (form-init7043269448206036034.clj:122).
+; class java.lang.String cannot be cast to class clojure.lang.IPersistentCollection (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IPersistentCollection is in unnamed module of loader 'app')
+clj꞉one-to-twenty.core꞉> 
+"Hello, Rhea !"
+clj꞉one-to-twenty.core꞉> 
+("a s" "d0")
+; Execution error (ClassCastException) at one-to-twenty.core/eval10626 (form-init7043269448206036034.clj:128).
+; class java.lang.String cannot be cast to class clojure.lang.IFn (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IFn is in unnamed module of loader 'app')
+clj꞉one-to-twenty.core꞉> 
+("a s" "d0")false
+clj꞉one-to-twenty.core꞉> 
+false
+clj꞉one-to-twenty.core꞉> 
+(cons "a" \!)
+; Execution error (IllegalArgumentException) at one-to-twenty.core/eval10636 (form-init7043269448206036034.clj:136).
+; Don't know how to create ISeq from: java.lang.Character
+clj꞉one-to-twenty.core꞉> 
+(conj "a" \!)
+; Execution error (ClassCastException) at one-to-twenty.core/eval10638 (form-init7043269448206036034.clj:140).
+; class java.lang.String cannot be cast to class clojure.lang.IPersistentCollection (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IPersistentCollection is in unnamed module of loader 'app')
+clj꞉one-to-twenty.core꞉> 
+(conj "aa" \!)
+; Execution error (ClassCastException) at one-to-twenty.core/eval10640 (form-init7043269448206036034.clj:144).
+; class java.lang.String cannot be cast to class clojure.lang.IPersistentCollection (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IPersistentCollection is in unnamed module of loader 'app')
+clj꞉one-to-twenty.core꞉> 
+"ass"
+"ass"
+clj꞉one-to-twenty.core꞉> 
+(conj "aa" \a)
+; Execution error (ClassCastException) at one-to-twenty.core/eval10642 (form-init7043269448206036034.clj:151).
+; class java.lang.String cannot be cast to class clojure.lang.IPersistentCollection (java.lang.String is in module java.base of loader 'bootstrap'; clojure.lang.IPersistentCollection is in unnamed module of loader 'app')
+clj꞉one-to-twenty.core꞉> 
+(cons "aa" \a)
+; Execution error (IllegalArgumentException) at one-to-twenty.core/eval10644 (form-init7043269448206036034.clj:155).
+; Don't know how to create ISeq from: java.lang.Character
+clj꞉one-to-twenty.core꞉> 
+#function[one-to-twenty.core/eval10646/fn--10647]
+clj꞉one-to-twenty.core꞉> 
+(6 7 8)
+clj꞉one-to-twenty.core꞉> 
+2
+clj꞉one-to-twenty.core꞉> 
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+; TypeError: Cannot read properties of undefined (reading 'label')
+; Aborting connect.
+(6 7 8)
+clj꞉one-to-twenty.core꞉> 
+(6 7)
+clj꞉one-to-twenty.core꞉> 
+(3 2 1)
+clj꞉one-to-twenty.core꞉> 
+3
+clj꞉one-to-twenty.core꞉> 
