@@ -1,6 +1,6 @@
 # four-clojure
 
-FIXME: description
+FIXME: SSH to personal email
 
 ## Installation
 
